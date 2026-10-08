@@ -21,30 +21,136 @@
          <main>
          <section id="productos">
             <h2>Nuestros cafes</h2>
-            <article>
-                <h3>Caffe Capuchino</h3>
-                <p>Delicioso espresso con leche vaporizada y una capa perfecta de espuma cremosa.</p>
-            </article>
+                    <article>
+                    <h3>Café Expresso</h3>
+                    <p>Un disparo concentrado de café puro, con un aroma intenso y una capa de crema avellanada.</p>
+                    </article>
 
-            </article>
-             <h3>caffe Macchiato</h3>
-                <p>Café espresso con un toque de leche espumada y un suave toque de vainilla.</p>
-            </article>
+                    <article>
+                    <h3>Café yumm (Especial)</h3>
+                    <p>Nuestra especialidad de la casa, una receta única con el balance perfecto de sabor y dulzura.</p>
+                    </article>
 
-            </article>
-             <h3>Caffe Latte Helado</h3>
-                <p>Café frío refrescante con leche fría, hielo y un toque de jarabe artesanal.</p>
-            </article>
+                    <article>
+                    <h3>Café Frío / Cold Brew</h3>
+                    <p>Café extraído en frío pacientemente durante horas, resultando en una bebida suave y muy refrescante.</p>
+                    </article>
 
-            </section>
+                    <article>
+                    <h3>Café Americano</h3>
+                    <p>El clásico café negro, ligero y equilibrado, ideal para empezar la mañana con energía.</p>
+                    </article>
+
+                    <article>
+                    <h3>Café Capuccino</h3>
+                    <p>Delicioso espresso con leche vaporizada y una capa perfecta de espuma cremosa.</p>
+                    </article>
+
+                    <article>
+                    <h3>Frappé de la Casa</h3>
+                    <p>Bebida granizada y cremosa, licuada con hielo, café y decorada con un toque irresistible.</p>
+                    </article>
+                </section>
 
             <section id="horarios">
                 <h2>Horarios</h2>
                 <p>lunes a viernes, de 07:00 a 10:00 y de 17:00 a 19:00.</p>
                 </section>
-            </main>
+            <table>
+          <caption>Precios por producto y disponibilidad</caption>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Disponible</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Caffe Expresso</td> <td>Bs 10.00</td> <td>Todos los días</td></tr>
+            <tr><td>Caffe_yumm (Especial)</td> <td>Bs 18.00</td> <td>Todos los días</td></tr>
+            <tr><td>Caffe Frío / Cold Brew</td> <td>Bs 15.00</td> <td>Lunes y jueves</td></tr>
+          </tbody>
+        </table>
 
-            <aside>
+        <figure>
+          <img src="termo.jpg"
+                alt=" tazas de café humeante listos para servir"
+                width="600" height="400">
+                <figcaption>Caffe a primera hora de la mañana.</figcaption>
+        </figure>
+      </section>
+        <section id="pedido">
+            <h2>Hacer un pedido</h2>
+
+            <form action="/pedido" method="post">
+
+            <fieldset>
+                <legend>Tus datos</legend>
+
+                <p>
+                <label for="nombre">Nombre completo</label>
+                
+                <input type="text" id="nombre" name="nombre"
+                        autocomplete="name" required>
+                </p>
+
+                <p>
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email"
+                        autocomplete="email" required>
+                </p>
+
+                <p>
+                <label for="telefono">Teléfono</label>
+               
+                <input type="tel" id="telefono" name="telefono"
+                        autocomplete="tel" pattern="[0-9]{7,8}"
+                        title="7 u 8 dígitos, sin espacios">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Tu pedido</legend>
+
+                <p>
+                <label for="producto">Producto</label>
+                
+                <select id="producto" name="producto" required>
+                    <option value="expresso">Café Expresso</option>
+                    <option value="especial">Café yumm (Especial)</option>
+                    <option value="cold_brew">Café Frío / Cold Brew</option>
+                    <option value="americano">Café Americano</option>
+                    <option value="capuccino">Café Capuccino</option>
+                    <option value="frappe">Frappé de la Casa</option>
+                </select>
+                </p>
+
+                <p>
+                <label for="cantidad">Cantidad</label>
+                <input type="number" id="cantidad" name="cantidad"
+                        min="1" max="100" value="1" required>
+                </p>
+
+                <p>
+                <label for="fecha">Fecha de entrega</label>
+                <input type="date" id="fecha" name="fecha" required>
+                </p>
+
+                <p>
+                <label for="notas">Alguna indicación</label>
+                <textarea id="notas" name="notas" rows="3"></textarea>
+                </p>
+
+                <p>
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto que el pedido se confirma por teléfono</label>
+                </p>
+            </fieldset>
+            <button type="submit">Enviar pedido</button>
+            </form>
+        </section>
+    </main>
+           <aside>
                 <h2>¿sabias?</h2>
                 <p>utilizamos un toque de vainilla.</p>
             </aside>
@@ -55,10 +161,11 @@
                 <p>Av. Aroma Nro. 123</br>
                 <p>Teléfono: +591 64122861
             </address>
-            <p>small>&copy;2026 cafe_yum</small></p>
+            <p>small>&copy;2026 caffe_yum</small></p>
         </footer>
     </body>
 </html>
+           
 
 
 
