@@ -46,7 +46,7 @@ function render(lista) {
   });
 
   if (lista.length === 0) {
-    contenedor.innerHTML = "<p>No hay productos que mostrar.</p>";
+    contenedor.innerHTML = '<p class="sin-productos">No hay cafés que coincidan con tu búsqueda.</p>';
   }
 }
 

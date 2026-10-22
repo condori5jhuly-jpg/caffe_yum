@@ -32,7 +32,7 @@ const productos = [
   { nombre: "Café Frío / Cold Brew",  precio: 15.0, categoria: "cafes_frios", stock: 8, disponible: true,
     imagen: "cafefrio.jpg", descripcion: "Café extraído en frío, suave y refrescante, ideal para los días calurosos." },
   { nombre: "Café Americano",         precio: 15.0, categoria: "cafes", stock: 30, disponible: true,
-    imagen: "cafeamericano.jpg", descripcion: "una bebida a base de espreso, rebajada con agua caliente." },
+    imagen: "cafeamericano.jpg", descripcion: "Una clásica bebida a base de espresso, rebajada con agua caliente." },
   { nombre: "Café Capuchino",         precio: 14.0, categoria: "cafes", stock: 20, disponible: true,
     imagen: "cafecapuchino.jpg", descripcion: "Espreso con leche vaporizada y espuma cremosa para disfrutar en cualquier momento." },
   { nombre: "Frappé de la Casa",      precio: 15.0, categoria: "frappes", stock: 15, disponible: true,

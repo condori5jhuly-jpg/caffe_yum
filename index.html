@@ -1,123 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="caffe_yum, siempre de alta calidad.">
-        <title>caffe_yum</title>
-        <link rel="stylesheet" href="estilos.css">
-    </head>
-    <body>
-        <header class="encabezado">
-            <div class="marca">
-                <h1>Caffe_yum</h1>
-                <p>bebida oscura y estimulante</p>
-            </div>
 
-            <div class="menu-derecha">
-                <img src="logo.jpg" alt="Logo de Caffe_yum" class="logo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="caffe_yum, siempre de alta calidad.">
+    <title>caffe_yum</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
 
-                <nav>
-                    <ul>
-                        <li><a href="#galeria">Productos</a></li>
-                        <li><a href="#horarios">Horarios</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-            <main>
-            <section id="galeria" class="productos">
+<body>
+    <header class="encabezado">
+        <div class="marca">
+            <h1>Caffe_yum</h1>
+            <p>bebida oscura y estimulante</p>
+        </div>
+
+        <div class="menu-derecha">
+            <img src="logo.jpg" alt="Logo de Caffe_yum" class="logo">
+
+            <nav>
+                <ul>
+                    <li><a href="#galeria">Productos</a></li>
+                    <li><a href="#horarios">Horarios</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                    <li><a href="#pedido">Hacer Pedido</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="galeria" class="productos">
             <h2>Nuestros cafés</h2>
-            <p class="subtitulo">Conoce nuestras especialidades.</p>
+            <p class="subtitulo">Disfruta nuestras 8 variedades de café artesanal.</p>
+            <div class="controles">
+                <label for="buscador" class="visualmente-oculto">
+                    Buscar productos
+                </label>
+
+                <input type="search" id="buscador" placeholder="Buscar un café...">
+
+                <div id="filtros">
+                    <button type="button" class="activo" data-categoria="todos">
+                        Todos
+                    </button>
+
+                    <button type="button" data-categoria="cafes">
+                        Cafés
+                    </button>
+
+                    <button type="button" data-categoria="especiales">
+                        Especiales
+                    </button>
+
+                    <button type="button" data-categoria="cafes_frios">
+                        Cafés fríos
+                    </button>
+
+                    <button type="button" data-categoria="frappes">
+                        Frappés
+                    </button>
+                </div>
+            </div>
+
+            <p id="resultado" aria-live="polite"></p>
 
             <!-- Las tarjetas ya no se escriben a mano: render.js las genera desde datos.js -->
             <div id="lista-productos" class="contenedor-cafes"></div>
         </section>
-                <section id="horarios">
-                    <h2>Horarios</h2>
-                    <p>Lunes a viernes, de 07:00 a 10:00 y de 17:00 a 19:00.</p>
-                <table>
-            <caption>Precios por producto y disponibilidad</caption>
-            <thead>
-                <tr>
-                <th scope="col">Producto</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Disponible</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Café Espresso</td><td>Bs 10.00</td><td>Todos los días</td></tr>
-                <tr><td>Caffe_yum Especial</td><td>Bs 18.00</td><td>Todos los días</td></tr>
-                <tr><td>Café Frío / Cold Brew</td><td>Bs 15.00</td><td>Lunes y jueves</td></tr>
-                <tr><td>Café Americano</td><td>Bs 15.00</td><td>Todos los días</td></tr>
-                <tr><td>Café Capuchino</td><td>Bs 14.00</td><td>Todos los días</td></tr>
-                <tr><td>Frappé de la Casa</td><td>Bs 15.00</td><td>Todos los días</td></tr>
-                <tr><td>Café Mocaccino</td><td>Bs 17.00</td><td>Todos los días</td></tr>
-                <tr><td>Café Latte</td><td>Bs 16.00</td><td>Todos los días</td></tr>
-            </tbody>
+        <section id="horarios">
+            <h2>Horarios</h2>
+            <p>Lunes a viernes, de 07:00 a 10:00 y de 17:00 a 19:00.</p>
+            <table>
+                <caption>Precios por producto y disponibilidad</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Disponible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Café Espresso</td>
+                        <td>Bs 10.00</td>
+                        <td>Todos los días</td>
+                    </tr>
+                    <tr>
+                        <td>Caffe_yum Especial</td>
+                        <td>Bs 18.00</td>
+                        <td>Todos los días</td>
+                    </tr>
+                    <tr>
+                        <td>Café Frío / Cold Brew</td>
+                        <td>Bs 15.00</td>
+                        <td>Lunes y jueves</td>
+                    </tr>
+                    <tr>
+                        <td>Café Americano</td>
+                        <td>Bs 15.00</td>
+                        <td>Todos los días</td>
+                    </tr>
+                    <tr>
+                        <td>Café Capuchino</td>
+                        <td>Bs 14.00</td>
+                        <td>Todos los días</td>
+                    </tr>
+                    <tr>
+                        <td>Frappé de la Casa</td>
+                        <td>Bs 15.00</td>
+                        <td>Todos los días</td>
+                    </tr>
+                    <tr>
+                        <td>Café Mocaccino</td>
+                        <td>Bs 17.00</td>
+                        <td>Todos los días</td>
+                    </tr>
+                    <tr>
+                        <td>Café Latte</td>
+                        <td>Bs 16.00</td>
+                        <td>Todos los días</td>
+                    </tr>
+                </tbody>
             </table>
-                </section>
-            <!-- UBICACIÓN DE CAFFE_YUM -->
-            <section id="ubicacion">
-                <h2>  Visítanos en Caffe_yum</h2>
+        </section>
+        <!-- UBICACIÓN DE CAFFE_YUM -->
+        <section id="ubicacion">
+            <h2> Visítanos en Caffe_yum</h2>
 
-                <p>¡Te esperamos para disfrutar de un delicioso café!</p>
+            <p>¡Te esperamos para disfrutar de un delicioso café!</p>
 
-                <div class="mapa">
-                    <iframe
-                        src="https://maps.google.com/maps?q=-16.9282992,-68.2426819&z=18&output=embed"
-                        width="100%"
-                        height="350"
-                        style="border: 0;"
-                        allowfullscreen
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Ubicación de Caffe_yum">
-                    </iframe>
-                </div>
+            <div class="mapa">
+                <iframe src="https://maps.google.com/maps?q=-16.9282992,-68.2426819&z=18&output=embed" width="100%"
+                    height="350" style="border: 0;" allowfullscreen loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Caffe_yum">
+                </iframe>
+            </div>
 
-                <p class="direccion-tienda">
-                     Caffe_yum — Nuestra sucursal
-                </p>
+            <p class="direccion-tienda">
+                Caffe_yum — Nuestra sucursal
+            </p>
 
-                <a
-                    class="boton-ubicacion"
-                    href="https://www.google.com/maps/dir/?api=1&destination=-16.9282992%2C-68.2426819"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Cómo llegar a nuestra tienda
-                </a>
-            </section>
+            <a class="boton-ubicacion"
+                href="https://www.google.com/maps/dir/?api=1&destination=-16.9282992%2C-68.2426819" target="_blank"
+                rel="noopener noreferrer">
+                Cómo llegar a nuestra tienda
+            </a>
+        </section>
 
 
 
-            <section id="pedido">
-                <h2>Hacer un pedido</h2>
+        <section id="pedido">
+            <h2>Hacer un pedido</h2>
 
-                <form action="/pedido" method="post">
+            <form action="/pedido" method="post">
 
                 <fieldset>
                     <legend>Tus datos</legend>
 
                     <p>
-                    <label for="nombre">Nombre completo</label>
-                    
-                    <input type="text" id="nombre" name="nombre"
-                            autocomplete="name" required>
+                        <label for="nombre">Nombre completo</label>
+
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" required>
                     </p>
 
                     <p>
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email"
-                            autocomplete="email" required>
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
                     </p>
 
                     <p>
-                    <label for="telefono">Teléfono</label>
-                
-                    <input type="tel" id="telefono" name="telefono"
-                            autocomplete="tel" pattern="[0-9]{7,8}"
+                        <label for="telefono">Teléfono</label>
+
+                        <input type="tel" id="telefono" name="telefono" autocomplete="tel" pattern="[0-9]{7,8}"
                             title="7 u 8 dígitos, sin espacios">
                     </p>
                 </fieldset>
@@ -126,66 +182,66 @@
                     <legend>Tu pedido</legend>
 
                     <p>
-                    <label for="producto">Producto</label>
-                    
-                    <select id="producto" name="producto" required>
-                        <option value="expresso">Café Espresso</option>
-                        <option value="especial">Caffe_yum Especial</option>
-                        <option value="cold_brew">Café Frío / Cold Brew</option>
-                        <option value="americano">Café Americano</option>
-                        <option value="capuccino">Café Capuchino</option>
-                        <option value="frappe">Frappé de la Casa</option>
-                        <option value="mocaccino">Café Mocaccino</option>
-                        <option value="latte">Café Latte</option>
-                    </select>
+                        <label for="producto">Producto</label>
+
+                        <select id="producto" name="producto" required>
+                            <option value="expresso">Café Espresso</option>
+                            <option value="especial">Caffe_yum Especial</option>
+                            <option value="cold_brew">Café Frío / Cold Brew</option>
+                            <option value="americano">Café Americano</option>
+                            <option value="capuccino">Café Capuchino</option>
+                            <option value="frappe">Frappé de la Casa</option>
+                            <option value="mocaccino">Café Mocaccino</option>
+                            <option value="latte">Café Latte</option>
+                        </select>
                     </p>
 
                     <p>
-                    <label for="cantidad">Cantidad</label>
-                    <input type="number" id="cantidad" name="cantidad"
-                            min="1" max="100" value="1" required>
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="100" value="1" required>
                     </p>
 
                     <p>
-                    <label for="fecha">Fecha de entrega</label>
-                    <input type="date" id="fecha" name="fecha" required>
+                        <label for="fecha">Fecha de entrega</label>
+                        <input type="date" id="fecha" name="fecha" required>
                     </p>
 
                     <p>
-                    <label for="notas">Alguna indicación</label>
-                    <textarea id="notas" name="notas" rows="3"></textarea>
+                        <label for="notas">Alguna indicación</label>
+                        <textarea id="notas" name="notas" rows="3"></textarea>
                     </p>
 
                     <p>
-                    <input type="checkbox" id="terminos" name="terminos" required>
-                    <label for="terminos">Acepto que el pedido se confirma por teléfono</label>
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        <label for="terminos">Acepto que el pedido se confirma por teléfono</label>
                     </p>
                 </fieldset>
-                <button type="submit">Enviar pedido</button>
-                </form>
-            </section>
-        </main>
-            <aside>
-                    <h2>¿sabias?</h2>
-                    <p>utilizamos un toque de vainilla.</p>
-                </aside>
-            <footer id="contacto">
-                <address>
-                    Av. Principal Viacha<br>
-                    Colquencha, La Paz<br>
-                    Teléfono: 64072425<br>
-                    caffe_yum
-                </address>
+                <button type="submit">Enviar pedido por WhatsApp</button>
+                <div id="mensaje-pedido" class="mensaje-pedido" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+    <aside class="curiosidad">
+        <h2>¿Sabías que...?</h2>
+        <p>En Caffe_yum preparamos cada taza con granos seleccionados y un sutil toque aromático de vainilla artesanal.
+        </p>
+    </aside>
+    <footer id="contacto">
+        <address>
+            Av. Principal Viacha<br>
+            Colquencha, La Paz<br>
+            Teléfono: 64072425<br>
+            caffe_yum
+        </address>
 
-                <p><small>&copy; 2026 caffe_yum</small></p>
-            </footer>
+        <p><small>&copy; 2026 caffe_yum</small></p>
+    </footer>
 
-            <script src="./datos.js"></script>
-            <script src="./funciones.js"></script>
-            <script src="./render.js"></script>
-            <script src="./app.js"></script>
-        </body>
-    </html>
+    <script src="./datos.js"></script>
+    <script src="./funciones.js"></script>
+    <script src="./render.js"></script>
+    <script src="./eventos.js"></script>
+    <script src="./app.js"></script>
+</body>
 
-
-
+</html>

@@ -32,74 +32,15 @@ console.log("10" === precioEspresso);
 
 
 // ── 6. PRIMER CAMBIO EN LA PÁGINA ───────────────────────────────────────
-const subtitulo = document.querySelector("header p");
-subtitulo.textContent = `Disfruta nuestras ${cafesDisponibles} variedades de café.`;
+const subtituloGaleria = document.querySelector("#galeria .subtitulo");
+if (subtituloGaleria) {
+  subtituloGaleria.textContent = `Disfruta nuestras ${cafesDisponibles} variedades de café artesanal.`;
+}
 
 // ── LA PREGUNTA DEL DÍA ─────────────────────────────────────────────────
 
-// ── 7. ENVIAR PEDIDOS POR WHATSAPP ──────────────────────────────
-
-const formularioPedido = document.querySelector("#pedido form");
-
-// Número de WhatsApp de Caffe_yum (Bolivia: código +591)
-const numeroWhatsApp = "59164122861";
-
-formularioPedido.addEventListener("submit", function (evento) {
-  evento.preventDefault();
-
-  // Obtener los datos del cliente
-  const nombreCliente = document.querySelector("#nombre").value.trim();
-  const emailCliente = document.querySelector("#email").value.trim();
-  const telefonoCliente = document.querySelector("#telefono").value.trim();
-
-  // Obtener los datos del pedido
-  const selectorProducto = document.querySelector("#producto");
-  const producto = selectorProducto.options[selectorProducto.selectedIndex].text;
-  const cantidad = Number(document.querySelector("#cantidad").value);
-  const fecha = document.querySelector("#fecha").value;
-  const notas = document.querySelector("#notas").value.trim();
-
-  // Precios de los productos
-  const precios = {
-    expresso: 10,
-    especial: 18,
-    cold_brew: 15,
-    americano: 15,
-    capuccino: 14,
-    frappe: 15,
-    mocaccino: 17,
-    latte: 16
-  };
-
-  const precioUnitario = precios[selectorProducto.value];
-
-  // Calcular el total
-  const total = precioUnitario * cantidad;
-
-  // Crear el mensaje del pedido
-  const mensaje = `
-¡NUEVO PEDIDO - CAFFE_YUM!
-
-DATOS DEL CLIENTE
-Nombre: ${nombreCliente}
-Correo: ${emailCliente}
-Teléfono: ${telefonoCliente || "No proporcionado"}
-
-DETALLES DEL PEDIDO
-Producto: ${producto}
-Cantidad: ${cantidad}
-Precio unitario: Bs ${precioUnitario.toFixed(2)}
-TOTAL: Bs ${total.toFixed(2)}
-Fecha de entrega: ${fecha}
-
-Indicaciones: ${notas || "Ninguna"}
-
-Pedido enviado desde la página web de Caffe_yum.
-  `.trim();
-
-  // Abrir WhatsApp con el pedido preparado
-  const enlaceWhatsApp =
-    `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-
-  window.open(enlaceWhatsApp, "_blank");
-});
+// ── 7. ENVIAR PEDIDOS POR WHATSAPP ──────────────────────────────────────
+// Configuración de contacto oficial de Caffe_yum (Bolivia: código +591)
+// Nota: La validación completa y el envío hacia WhatsApp se gestionan de forma
+// integrada en eventos.js para evitar conflictos de múltiples submit listeners.
+console.log(`Sistema de pedidos listo para Caffe_yum: WhatsApp ${negocio}`);
