@@ -1,0 +1,55 @@
+ERRORES Y ARREGLOS DE TU PROYECTO: Caffe_yum (21 de octubre)
+========================================================================
+
+Jhuly_Condori_Tito_1 es tu proyecto con todo arreglado. Tu carpeta original no se tocó.
+Ábrela con live-server y revisa cada cambio antes de hacer tu commit. La guía "Depurar el render"
+explica cada uno de estos errores.
+
+1. POR QUÉ NO APARECÍA NINGUNA TARJETA
+--------------------------------------
+- datos.js creaba dos veces "const cafeEspresso" (al principio y en la parte de las clases).
+  Un const no se puede repetir: el navegador rechaza el archivo ENTERO ("Identifier 'cafeEspresso'
+  has already been declared") y el arreglo productos nunca llega a existir.
+  -> El segundo se llama espressoConDescuento.
+- Por eso salía también "lista.forEach is not a function": sin datos.js, la palabra productos
+  pasa a ser... tu <section id="productos">. El navegador crea una variable con el id de cada
+  elemento, y render(productos) recibía una sección en vez de un arreglo.
+
+2. LAS TARJETAS
+---------------
+- Tenías tres listas de cafés: 6 escritos a mano con texto, "Productos desde JavaScript" (vacía)
+  y la galería con fotos, también escrita a mano.
+  -> Queda una sola, con el diseño de tu galería, y se genera desde datos.js.
+  -> datos.js: cada café tiene imagen y descripcion (las de tu galería). El Mocaccino y el Latte
+     tenían foto en la carpeta (mochaccino.jpg, cafe latte.jpg) pero no salían: ahora sí.
+  -> render.js: crearTarjeta arma la tarjeta como tu galería (foto + .contenido-cafe).
+  -> El menú "Productos" lleva a la galería (#galeria).
+- Tu subtítulo dice "Disfruta nuestras 6 variedades de café": ahora son 8. Corrígelo tú.
+
+3. EL HTML
+----------
+- La sección de horarios se cerraba antes de su tabla, y sobraba un </section> al final.
+- "lunes" con mayúscula al inicio de la frase.
+
+4. LOS SCRIPTS
+--------------
+- funciones.js: panesVendidos (de la demo de la panadería) -> cafesVendidos.
+
+5. NOMBRES DE ARCHIVO
+---------------------
+- "cafe latte.jpg" -> cafe-latte.jpg, sin espacios.
+
+CÓMO PASAR ESTOS ARREGLOS A TU PROYECTO
+---------------------------------------
+Tu carpeta .git no llegó en el Drive: es la que guarda la historia de tus commits (está oculta).
+No crees otro repositorio. Haz esto:
+
+  1. Abre la carpeta de tu proyecto en tu memoria o tu computadora, la que tiene tus commits.
+  2. Copia ahí TODOS los archivos de esta carpeta y elige "Reemplazar".
+  3. En Git Bash, dentro de esa carpeta:
+
+        git add .
+        git commit -m "fix: las tarjetas se generan desde los datos, con foto"
+
+  Así el arreglo queda en tu misma historia, y git push lo sube a tu mismo GitHub.
+  Si de verdad no tienes otra carpeta con .git, avisa al docente: ahí sí se hace git init.

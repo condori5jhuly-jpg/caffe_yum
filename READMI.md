@@ -1,24 +1,23 @@
-# [Caffe_yum — Cafetería y pedidos de café]
+# [Caffe_yum]
 
 **Estudiante:** [Jhuly Condori Tito]
-**Cliente:** [Caffe_yum]
+**Cliente:** [Público en general que disfruta del café y los productos de cafetería]
 **URL publicada:** [DESPUES, PROXIMA SEMANA]
 
 ## Qué resuelve
-[Caffe_yum presenta productos de una cafetería, mostrar sus precios y horarios de atención para facilitar que los clientes realicen sus pedidos. El sitio incluye una galería con imágenes y descripciones de seis variedades de café, una tabla de precios y disponibilidad, un formulario para solicitar pedidos y una sección con información de contacto.]
-
+[sirve para mostrar los diferentes tipos de café que ofrece la cafetería junto con sus imágenes, descripciones y precios.Tambien permite que los clientes puedan visualizar los productos disponibles, conocer los horarios de atencion y llenar un formulario para realizar sus pedidos.]
 ## Cómo está construido
-- **Semántica:** [Utilicé  etiquetas como header, nav, main, section, article, aside y footer para organizar el contenido.Como tambien  una tabla con caption, thead, tbody y encabezados th para presentar los precios y la disponibilidad de los productos. También utilicé form, fieldset, legend y label para estructurar el formulario de pedidos, junto con validaciones HTML para los campos obligatorios y el número de teléfono. Las imágenes incluyen atributos alt para describir su contenido.]
-- **Layout:** [Utilicé Flexbox en el encabezado para distribuir el nombre de la cafetería, el logotipo y el menú de navegación. También lo utilicé para alinear los enlaces y organizar los elementos del encabezado. Implementé CSS Grid en la sección de productos para distribuir las tarjetas en columnas. En la galería utilicé cuatro columnas en pantallas grandes, dos columnas en tabletas y una columna en celulares. Además, incorporé media queries para adaptar los tamaños, espacios y distribución de los elementos a diferentes pantallas.]
-- **Diseño:** [Elegí una paleta de colores inspirada en el café, con tonos oscuros y cálidos. El color principal es #320000 (marrón muy oscuro), el color de acento es #B8471F (terracota), el fondo utiliza #F7EFE4 (crema) y las tarjetas tienen un fondo blanco #FFFFFF. También utilicé bordes en tonos marrones para mantener una identidad visual coherente. Para la tipografía elegí una familia de sistema (system-ui, Segoe UI y Roboto como alternativas), buscando una lectura clara y una apariencia moderna. Añadí sombras suaves, bordes redondeados y efectos al pasar el cursor sobre las tarjetas.]
+- **Semántica:** [Hice uso de <header> y <nav> para ordenar la parte superior y el menú de la galeria de cafes, asi tambien hice uso de <main> y <section> para organizar el contenido de los productos,abri un bloque de <article> para las tarjetas de café y por ultimo se utilizo <footer> para colocar la información de contacto.]
+- **Layout:** [Se hizo uso de Flexbox para acomodar el nombre de la cafetería, el logotipo y los enlaces del menú. Para mostrar los productos usé CSS Grid, porque me pareció una forma práctica de distribuir las tarjetas en columnas.]
+- **Diseño:** [Elegi colores relacionados con el café, como el marrón oscuro, el terracota y el crema. Quería que la página tuviera una apariencia cálida y agradable, relacionada con el ambiente de una cafetería. tambien use tarjetas blancas para que los productos se vieran mejor. Para los textos elegí el negro para poder facilitar la lectura.]
 
 ## Capturas
 ![Escritorio](captura-escritorio.png)
 ![Móvil 375px](ruta/a/captura-movil.png) DESPUES, PROXIMA SEMANA
 
 ## Lo más difícil
-[Uno de los retos técnicos fue adaptar la galería de productos a diferentes tamaños de pantalla sin que las tarjetas se desbordaran o perdieran su organización. Para resolverlo, utilicé CSS Grid con grid-template-columns y minmax(0, 1fr), estableciendo cuatro columnas para pantallas grandes, dos columnas cuando el ancho es de 900 píxeles o menos y una columna cuando el ancho es de 480 píxeles o menos. También utilicé min-width: 0 y overflow: hidden en las tarjetas para controlar el contenido y evitar desbordamientos.
-
-Otro aspecto importante fue adaptar el encabezado para que el nombre de la cafetería, el logotipo y los enlaces de navegación pudieran organizarse en pantallas pequeñas mediante Flexbox y media queries.]
+[Lo que más me costó fue crear la galería de cafés ya que las imágenes ocupaban demasiado espacio y no lograba organizarlos junto con sus descripciones y precios. 
+Para organizar los productos usé las etiquetas <div> y <article>, lo que me permitió separar cada café en una tarjeta diferente y colocar dentro la imagen, el nombre, la descripción y el precio.
+Luego modifiqué el CSS. Usé width y height para ajustar el tamaño de las imágenes.]
 
 

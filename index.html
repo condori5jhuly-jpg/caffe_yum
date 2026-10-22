@@ -19,7 +19,7 @@
 
                 <nav>
                     <ul>
-                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#galeria">Productos</a></li>
                         <li><a href="#horarios">Horarios</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
@@ -27,43 +27,16 @@
             </div>
         </header>
             <main>
-            <section id="productos">
-                <h2>Nuestros cafes</h2>
-                        <article>
-                        <h3>Café Espreso</h3>
-                        <p>Un disparo concentrado de café puro, con un aroma intenso y una capa de crema avellanada.</p>
-                        </article>
+            <section id="galeria" class="productos">
+            <h2>Nuestros cafés</h2>
+            <p class="subtitulo">Conoce nuestras especialidades.</p>
 
-                        <article>
-                        <h3>Caffe_yum (Especial)</h3>
-                        <p>Nuestra especialidad de la casa, una receta única con el balance perfecto de sabor y dulzura.</p>
-                        </article>
-
-                        <article>
-                        <h3>Café Frío / Cold Brew</h3>
-                        <p>Café extraído en frío pacientemente durante horas, resultando en una bebida suave y muy refrescante.</p>
-                        </article>
-
-                        <article>
-                        <h3>Café Americano</h3>
-                        <p>El clásico café negro, ligero y equilibrado, ideal para empezar la mañana con energía.</p>
-                        </article>
-
-                        <article>
-                        <h3>Café Capuchino</h3>
-                        <p>Delicioso espresso con leche vaporizada y una capa perfecta de espuma cremosa.</p>
-                        </article>
-
-                        <article>
-                        <h3>Frappé de la Casa</h3>
-                        <p>Bebida granizada y cremosa, licuada con hielo, café y decorada con un toque irresistible.</p>
-                        </article>
-                    </section>
-
+            <!-- Las tarjetas ya no se escriben a mano: render.js las genera desde datos.js -->
+            <div id="lista-productos" class="contenedor-cafes"></div>
+        </section>
                 <section id="horarios">
                     <h2>Horarios</h2>
-                    <p>lunes a viernes, de 07:00 a 10:00 y de 17:00 a 19:00.</p>
-                    </section>
+                    <p>Lunes a viernes, de 07:00 a 10:00 y de 17:00 a 19:00.</p>
                 <table>
             <caption>Precios por producto y disponibilidad</caption>
             <thead>
@@ -74,89 +47,51 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Cafe Espreso</td> <td>Bs 10.00</td> <td>Todos los días</td></tr>
-                <tr><td>Cafe_yumm (Especial)</td> <td>Bs 18.00</td> <td>Todos los días</td></tr>
-                <tr><td>Cafe Frío / Cold Brew</td> <td>Bs 15.00</td> <td>Lunes y jueves</td></tr>
+                <tr><td>Café Espresso</td><td>Bs 10.00</td><td>Todos los días</td></tr>
+                <tr><td>Caffe_yum Especial</td><td>Bs 18.00</td><td>Todos los días</td></tr>
+                <tr><td>Café Frío / Cold Brew</td><td>Bs 15.00</td><td>Lunes y jueves</td></tr>
+                <tr><td>Café Americano</td><td>Bs 15.00</td><td>Todos los días</td></tr>
+                <tr><td>Café Capuchino</td><td>Bs 14.00</td><td>Todos los días</td></tr>
+                <tr><td>Frappé de la Casa</td><td>Bs 15.00</td><td>Todos los días</td></tr>
+                <tr><td>Café Mocaccino</td><td>Bs 17.00</td><td>Todos los días</td></tr>
+                <tr><td>Café Latte</td><td>Bs 16.00</td><td>Todos los días</td></tr>
             </tbody>
             </table>
+                </section>
+            <!-- UBICACIÓN DE CAFFE_YUM -->
+            <section id="ubicacion">
+                <h2>  Visítanos en Caffe_yum</h2>
 
-            <section id="galeria" class="productos">
-            <h2>Galería de nuestros cafés</h2>
-            <p class="subtitulo">Conoce nuestras especialidades.</p>
+                <p>¡Te esperamos para disfrutar de un delicioso café!</p>
 
-            <div class="contenedor-cafes">
+                <div class="mapa">
+                    <iframe
+                        src="https://maps.google.com/maps?q=-16.9282992,-68.2426819&z=18&output=embed"
+                        width="100%"
+                        height="350"
+                        style="border: 0;"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación de Caffe_yum">
+                    </iframe>
+                </div>
 
-                <article class="tarjeta-cafe">
-                    <img src="cafeespreso.webp" alt="Café espreso">
-                    <div class="contenido-cafe">
-                        <h3>Café Espresso</h3>
-                        <p>
-                            Café concentrado de sabor intenso, aroma profundo
-                            y una deliciosa capa de crema.
-                        </p>
-                        <div class="precio">Bs 10,00</div>
-                    </div>
-                </article>
+                <p class="direccion-tienda">
+                     Caffe_yum — Nuestra sucursal
+                </p>
 
-                <article class="tarjeta-cafe">
-                    <img src="cafeespecial.jpg" alt="Café especial de la casa">
-                    <div class="contenido-cafe">
-                        <h3>Caffe_yum Especial</h3>
-                        <p>
-                            Nuestra receta exclusiva combina café, dulzura
-                            y un sabor único.
-                        </p>
-                        <div class="precio">Bs 18,00</div>
-                    </div> 
-                </article>
+                <a
+                    class="boton-ubicacion"
+                    href="https://www.google.com/maps/dir/?api=1&destination=-16.9282992%2C-68.2426819"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Cómo llegar a nuestra tienda
+                </a>
+            </section>
 
-                <article class="tarjeta-cafe">
-                    <img src="cafefrio.jpg" alt="Café frío">
-                    <div class="contenido-cafe">
-                        <h3>Café Frío / Cold Brew</h3>
-                        <p>
-                            Café extraído en frío, suave y refrescante,
-                            ideal para los días calurosos.
-                        </p>
-                        <div class="precio">Bs 15,00</div>
-                    </div>
-                </article>
-                <article class="tarjeta-cafe">
-                    <img src="cafeamericano.jpg" alt="Cafe Americano">
-                    <div class="contenido-cafe">
-                        <h3>Cafe Americano</h3>
-                        <p>
-                            una bebida a base de espreso, rebajada con agua caliente.
-                        </p>
-                        <div class="precio">Bs 15,00</div>
-                    </div>
-                </article>
 
-                <article class="tarjeta-cafe">
-                    <img src="cafecapuchino.jpg" alt="Café Capuchino">
-                    <div class="contenido-cafe">
-                        <h3>Café Capuchino</h3>
-                        <p>
-                            Espreso con leche vaporizada y espuma cremosa
-                            para disfrutar en cualquier momento.
-                        </p>
-                        <div class="precio">Bs 14,00</div>
-                    </div>
-                </article>
-                <article class="tarjeta-cafe">
-                    <img src="frapedelacasa.jpg" alt="Frappe de la casa">
-                    <div class="contenido-cafe">
-                        <h3>Frappe de la casa</h3>
-                        <p>
-                        La combinación de café, banano y canela en un frappé crea una experiencia refrescante.
-                        </p>
-                        <div class="precio">Bs 15,00</div>
-                    </div>
-                </article>
 
-            </div>
-        </section>
-        </section>
             <section id="pedido">
                 <h2>Hacer un pedido</h2>
 
@@ -194,12 +129,14 @@
                     <label for="producto">Producto</label>
                     
                     <select id="producto" name="producto" required>
-                        <option value="expresso">Café Espreso</option>
-                        <option value="especial">Café yumm (Especial)</option>
+                        <option value="expresso">Café Espresso</option>
+                        <option value="especial">Caffe_yum Especial</option>
                         <option value="cold_brew">Café Frío / Cold Brew</option>
                         <option value="americano">Café Americano</option>
                         <option value="capuccino">Café Capuchino</option>
                         <option value="frappe">Frappé de la Casa</option>
+                        <option value="mocaccino">Café Mocaccino</option>
+                        <option value="latte">Café Latte</option>
                     </select>
                     </p>
 
@@ -242,12 +179,13 @@
 
                 <p><small>&copy; 2026 caffe_yum</small></p>
             </footer>
+
+            <script src="./datos.js"></script>
+            <script src="./funciones.js"></script>
+            <script src="./render.js"></script>
+            <script src="./app.js"></script>
         </body>
     </html>
-
-
-
-
 
 
 
