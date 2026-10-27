@@ -12,13 +12,12 @@
 <body>
     <header class="encabezado">
         <div class="marca">
+            <img src="logo.jpg" alt="Logo de Caffe_yum" class="logo">
             <h1>Caffe_yum</h1>
             <p>bebida oscura y estimulante</p>
         </div>
 
         <div class="menu-derecha">
-            <img src="logo.jpg" alt="Logo de Caffe_yum" class="logo">
-
             <nav>
                 <ul>
                     <li><a href="#galeria">Productos</a></li>
@@ -221,6 +220,38 @@
             </form>
         </section>
     </main>
+    <!-- ── PANEL DEL DÍA 11 ──────────────────────────────────────────── -->
+    <section id="panel">
+        <h2>Panel del proyecto</h2>
+
+        <div id="acordeon">
+            <div class="item">
+                <button type="button" class="titulo" aria-expanded="false">¿Hacen pedidos por encargo?</button>
+                <div class="cuerpo" hidden>
+                    <p>Sí, con 24 horas de anticipación y un mínimo de una docena.</p>
+                </div>
+            </div>
+            <div class="item">
+                <button type="button" class="titulo" aria-expanded="false">¿Tienen delivery?</button>
+                <div class="cuerpo" hidden>
+                    <p>En un radio de diez cuadras, sin costo adicional.</p>
+                </div>
+            </div>
+            <div class="item">
+                <button type="button" class="titulo" aria-expanded="false">¿Qué formas de pago aceptan?</button>
+                <div class="cuerpo" hidden>
+                    <p>Efectivo y código QR.</p>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" id="mostrar-avisos">Mostrar avisos</button>
+        <ul id="avisos">
+            <li hidden>Hoy hay pan integral recién horneado.</li>
+            <li hidden>Las empanadas salen a las 16:00.</li>
+            <li hidden>El lunes cerramos por feriado.</li>
+        </ul>
+    </section>
     <aside class="curiosidad">
         <h2>¿Sabías que...?</h2>
         <p>En Caffe_yum preparamos cada taza con granos seleccionados y un sutil toque aromático de vainilla artesanal.
@@ -232,6 +263,7 @@
             Colquencha, La Paz<br>
             Teléfono: 64072425<br>
             caffe_yum
+            <p class="slogan">bebida oscura y estimulante</p>
         </address>
 
         <p><small>&copy; 2026 caffe_yum</small></p>
@@ -241,7 +273,11 @@
     <script src="./funciones.js"></script>
     <script src="./render.js"></script>
     <script src="./eventos.js"></script>
+    <script src="./jquery-comparado.js"></script>
+    <script src="./jquery-panel.js"></script>
     <script src="./app.js"></script>
+
+
 </body>
 
 </html>
