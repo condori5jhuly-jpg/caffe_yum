@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="caffe_yum, siempre de alta calidad.">
-    <title>caffe_yum</title>
+    <meta name="description" content="Descubre las variedades de café artesanal de Caffe_yum y encuentra tu próxima taza favorita.">
+    <meta name="theme-color" content="#4b291e">
+    <title>Caffe_yum | Café artesanal</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 
@@ -17,19 +18,52 @@
             <p>bebida oscura y estimulante</p>
         </div>
 
+
         <div class="menu-derecha">
-            <nav>
-                <ul>
-                    <li><a href="#galeria">Productos</a></li>
-                    <li><a href="#horarios">Horarios</a></li>
-                    <li><a href="#ubicacion">Ubicación</a></li>
-                    <li><a href="#pedido">Hacer Pedido</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+            <div class="panel-dropdown-wrapper">
+                <button type="button" id="btn-panel" class="btn-panel" aria-expanded="false"
+                    aria-controls="panel-dropdown">
+                    ☰ Menú
+                </button>
+
+                <nav id="panel-dropdown" class="panel-dropdown" hidden>
+                    <ul>
+                        <li><a href="#galeria">Productos</a></li>
+                        <li><a href="#tablero-zona">Planificación</a></li>
+                        <li><a href="#horarios">Horarios</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                        <li><a href="#pedido">Hacer Pedido</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+
     </header>
     <main>
+        <section class="hero" aria-label="Bienvenida a Caffe_yum">
+            <div class="hero-copy">
+                <p class="hero-eyebrow">CAFÉ ARTESANAL · CAFFE_YUM</p>
+                <h2>Una pausa que sabe a hogar.</h2>
+                <p>Descubre tu próxima taza favorita entre nuestras variedades de café, preparadas para acompañar tus mejores momentos.</p>
+                <div class="hero-acciones">
+                    <a class="boton-principal" href="#galeria">Explorar el menú <span aria-hidden="true">→</span></a>
+                    <a class="hero-enlace" href="#pedido">Haz tu pedido</a>
+                </div>
+                <div class="hero-nota">
+                    <span class="hero-punto" aria-hidden="true"></span>
+                    <span>Ocho variedades para encontrar tu favorita</span>
+                </div>
+            </div>
+            <div class="hero-imagen">
+                <img src="cafeamericano.jpg" alt="Café americano recién servido en una taza">
+                <div class="hero-sello" aria-hidden="true">
+                    <span>Tu momento</span>
+                    <strong>de café</strong>
+                </div>
+            </div>
+        </section>
+
         <section id="galeria" class="productos">
             <h2>Nuestros cafés</h2>
             <p class="subtitulo">Disfruta nuestras 8 variedades de café artesanal.</p>
@@ -220,37 +254,147 @@
             </form>
         </section>
     </main>
+
+    <!-- ── ZONA DEL DÍA 14: TABLERO Y GRÁFICO ───────────────────────── -->
+    <section id="tablero-zona">
+        <h2>Planificar el día</h2>
+        <p>Arrastra un producto entre las columnas o selecciónalo y elige su destino.</p>
+
+        <div id="tablero">
+            <div class="columna" data-columna="hornear">
+                <h3>Preparar hoy</h3>
+                <ul class="lista-columna"></ul>
+                <p class="total" aria-live="polite"></p>
+            </div>
+
+            <div class="columna" data-columna="reponer">
+                <h3>Reponer existencias</h3>
+                <ul class="lista-columna"></ul>
+                <p class="total" aria-live="polite"></p>
+            </div>
+
+            <div class="columna" data-columna="pausa">
+                <h3>En pausa</h3>
+                <ul class="lista-columna"></ul>
+                <p class="total" aria-live="polite"></p>
+            </div>
+        </div>
+
+        <p id="estado-tablero" role="status" aria-live="polite">Preparando el tablero...</p>
+
+        <canvas id="grafico" width="600" height="220" role="img"
+            aria-label="Gráfico de existencias por columna del tablero">
+            Gráfico de las existencias por columna. Los valores también se muestran en el texto de cada columna.
+        </canvas>
+    </section>
+
+    <!-- ── ZONA DEL DÍA 13: LA PÁGINA RECUERDA ──────────────────────── -->
+      <section id="preferencias">
+        <h2>Tus preferencias</h2>
+
+        <button type="button" id="tema-toggle" aria-pressed="false">Modo oscuro</button>
+
+        <label for="orden">Ordenar por</label>
+        <select id="orden">
+          <option value="nombre">Nombre</option>
+          <option value="precio-menor">Menor precio</option>
+          <option value="precio-mayor">Mayor precio</option>
+        </select>
+
+        <button type="button" id="olvidar">Olvidar mis preferencias</button>
+
+        <p id="estado-prefs" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- ── ZONA DEL DÍA 13: DÓNDE ESTÁ EL USUARIO ───────────────────── -->
+      <section id="ubicacion">
+        <h2>¿Estás cerca?</h2>
+        <p>Calculamos la distancia hasta el local. Tu ubicación no sale de tu navegador.</p>
+
+        <button type="button" id="ubicarme">Calcular mi distancia</button>
+        <p id="estado-ubicacion" role="status" aria-live="polite"></p>
+      </section>
+    <!-- ── ZONA DEL DÍA 12: DATOS QUE LLEGAN POR LA RED ─────────────── -->
+    <section id="remoto">
+        <h2>Catálogo del proveedor</h2>
+
+        <button type="button" id="cargar-fetch">Cargar con fetch</button>
+        <button type="button" id="cargar-jquery">Cargar con jQuery</button>
+        <button type="button" id="cargar-roto">Probar un error</button>
+
+        <p id="estado" role="status" aria-live="polite"></p>
+
+        <div id="lista-remota"></div>
+    </section>
     <!-- ── PANEL DEL DÍA 11 ──────────────────────────────────────────── -->
-    <section id="panel">
+    <!-- PANEL DEL PROYECTO -->
+    <section id="panel-proyecto">
         <h2>Panel del proyecto</h2>
+        <button type="button" id="btn-menu-proyecto" aria-expanded="false" aria-controls="menu-proyecto">
+            Opciones del panel
+        </button>
+
+        <nav id="menu-proyecto" hidden>
+            <a href="#galeria"> Productos</a>
+            <a href="#horarios"> Horarios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+
 
         <div id="acordeon">
             <div class="item">
-                <button type="button" class="titulo" aria-expanded="false">¿Hacen pedidos por encargo?</button>
+                <button type="button" class="titulo" aria-expanded="false">
+                    ¿Hacen pedidos por encargo?
+                </button>
                 <div class="cuerpo" hidden>
-                    <p>Sí, con 24 horas de anticipación y un mínimo de una docena.</p>
+                    <p>
+                        Sí, puedes realizar tu pedido desde el formulario de nuestra
+                        página. Selecciona el café que deseas, indica la cantidad
+                        y elige la fecha de entrega. Después, envía tu solicitud
+                        por WhatsApp para confirmar los detalles.
+                    </p>
                 </div>
             </div>
+
             <div class="item">
-                <button type="button" class="titulo" aria-expanded="false">¿Tienen delivery?</button>
+                <button type="button" class="titulo" aria-expanded="false">
+                    ¿Tienen delivery?
+                </button>
                 <div class="cuerpo" hidden>
-                    <p>En un radio de diez cuadras, sin costo adicional.</p>
+                    <p>
+                        ¡Sí! Puedes consultar la disponibilidad del servicio de entrega
+                        al realizar tu pedido por WhatsApp. Te ayudaremos a coordinar
+                        la entrega según tu ubicación.
+                    </p>
                 </div>
             </div>
+
             <div class="item">
-                <button type="button" class="titulo" aria-expanded="false">¿Qué formas de pago aceptan?</button>
+                <button type="button" class="titulo" aria-expanded="false">
+                    ¿Qué formas de pago aceptan?
+                </button>
                 <div class="cuerpo" hidden>
-                    <p>Efectivo y código QR.</p>
+                    <p>
+                        Aceptamos pagos en efectivo y mediante código QR.
+                        Elige la opción que te resulte más cómoda al realizar tu pedido.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <button type="button" id="mostrar-avisos">Mostrar avisos</button>
-        <ul id="avisos">
-            <li hidden>Hoy hay pan integral recién horneado.</li>
-            <li hidden>Las empanadas salen a las 16:00.</li>
-            <li hidden>El lunes cerramos por feriado.</li>
+
+        <button type="button" id="mostrar-avisos" aria-expanded="false" aria-controls="avisos">
+            Mostrar avisos
+        </button>
+
+
+        <ul id="avisos" hidden>
+            <li> ¡Empieza tu día con el delicioso aroma de nuestro Café Americano!</li>
+            <li>Disfruta nuestro Mocaccino: café, chocolate y leche cremosa.</li>
+            <li>Tu café favorito te espera en Caffe_yum. ¡Haz tu pedido hoy!</li>
         </ul>
+
     </section>
     <aside class="curiosidad">
         <h2>¿Sabías que...?</h2>
@@ -273,10 +417,14 @@
     <script src="./funciones.js"></script>
     <script src="./render.js"></script>
     <script src="./eventos.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./jquery-comparado.js"></script>
     <script src="./jquery-panel.js"></script>
+    <script src="./remoto.js"></script>
     <script src="./app.js"></script>
-
+    <script src="preferencias.js"></script>
+    <script src="./tablero.js"></script>
 
 </body>
 

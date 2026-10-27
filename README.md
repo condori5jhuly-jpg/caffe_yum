@@ -13,7 +13,6 @@
 
 ## Capturas
 ![Escritorio](captura-escritorio.png)
-![Móvil 375px](ruta/a/captura-movil.png) DESPUES, PROXIMA SEMANA
 
 ## Lo más difícil
 [Lo que más me costó fue crear la galería de cafés ya que las imágenes ocupaban demasiado espacio y no lograba organizarlos junto con sus descripciones y precios. 
@@ -24,7 +23,7 @@ Luego modifiqué el CSS. Usé width y height para ajustar el tamaño de las imá
 [En este laboratorio aprendimos a conectar JavaScript con nuestra página web dividiendo la lógica en diferentes archivos para que sea ordenada, y trabajamos especialmente en la creación de botones interactivos.
 
 - **En index.html:**
-  Añadimos al final del documento las etiquetas script src para enlazar los archivos JavaScript en el orden exacto en (datos.js, funciones.js, render.js, eventos.js y app.js). También aumentamos la barra de controles con el buscador de texto y un grupo de botones interactivos de filtro, además del botón interactivo para enviar el pedido por WhatsApp. 
+  Enlaza los módulos del catálogo, el panel, la comparación jQuery y la carga remota. jQuery se obtiene desde su CDN antes de cargar los scripts que lo utilizan. Incluye el buscador, los filtros y el formulario que prepara el pedido para WhatsApp.
 
 - **En datos.js:**
   Contiene la lista oficial de 8 variedades de café almacenadas en un arreglo de objetos, donde cada café tiene su nombre, precio, categoría, stock, imagen y descripción. También contiene  métodos de arreglos para buscar, filtrar y calcular valores del inventario, y clases para representar productos con y sin descuento.
@@ -44,3 +43,8 @@ Luego modifiqué el CSS. Usé width y height para ajustar el tamaño de las imá
 
 - **En app.js:**
   Funciona como el archivo de configuración general del negocio. Guarda las constantes principales de la cafetería como el nombre comercial y el año de fundación, y se encarga de actualizar en la página web el texto que indica la cantidad exacta de cafés disponibles en stock.]
+
+- **Catálogo remoto:** `remoto.js` obtiene `datos.json` con fetch o jQuery. Para usar esas peticiones, abre el proyecto con Live Server u otro servidor local; abrir `index.html` directamente puede bloquearlas.
+
+- **Preferencias y ubicación:** `preferencias.js` aplica y guarda el tema y el orden del catálogo con `localStorage`, y ofrece la consulta de geolocalización.
+- **Tablero de planificación:** `tablero.js` carga los productos y existencias de `datos.json`, permite moverlos entre las tres columnas mediante arrastre o selección táctil/teclado, y actualiza los totales y el gráfico. El archivo se carga una sola vez desde `index.html`; usa Live Server u otro servidor local para permitir la lectura de JSON con `fetch`.

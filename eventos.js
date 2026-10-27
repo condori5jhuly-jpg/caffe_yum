@@ -105,7 +105,8 @@ if (soloDisponibles) {
 
 // ── 5. EL EVENTO submit Y preventDefault: VALIDACIÓN Y PEDIDO A WHATSAPP ───
 const campoFecha = formulario.querySelector("#fecha");
-const hoy = new Date().toISOString().slice(0, 10);
+const fechaActual = new Date();
+const hoy = `${fechaActual.getFullYear()}-${String(fechaActual.getMonth() + 1).padStart(2, "0")}-${String(fechaActual.getDate()).padStart(2, "0")}`;
 if (campoFecha) {
   campoFecha.min = hoy; // Evita que se seleccionen días pasados en el calendario
 }

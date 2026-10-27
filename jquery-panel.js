@@ -36,59 +36,87 @@ $("#panel-dropdown a").on("click", function () {
   $("#btn-panel").attr("aria-expanded", "false");
 });
 
-// ── 1. .on() ES LA FORMA ÚNICA ──────────────────────────────────────────
-$("#menu-toggle").on("click", function () {
-  const $menu = $("#menu-movil");
-
-  const abierto = $(this).attr("aria-expanded") === "true";
-  $menu.toggle(200);
-  // hidden should be the opposite of abierto after toggle
-  $menu.attr("hidden", !abierto);
-  $(this).attr("aria-expanded", !abierto);
-});
-
-// ── 2. DELEGACIÓN, EN UNA LÍNEA ─────────────────────────────────────────
+// ── 1. DELEGACIÓN, EN UNA LÍNEA ─────────────────────────────────────────
 $("#acordeon").on("click", ".titulo", function () {
   const $titulo = $(this);
-  const $cuerpo = $titulo.next(".cuerpo");
+  const $respuesta = $titulo.next(".cuerpo");
+  const estabaAbierto = $titulo.attr("aria-expanded") === "true";
 
-  // Toggle visibility with animation and update hidden attribute
-  $cuerpo.stop(true, true).slideToggle(200, function () {
-    $cuerpo.attr("hidden", !$cuerpo.is(":visible"));
-  });
+  // Cerrar todas las respuestas
+  $("#acordeon .cuerpo").not($respuesta)
+    .stop(true, true)
+    .hide()
+    .attr("hidden", true);
 
-  // Update aria-expanded on the button
-  $titulo.attr("aria-expanded", $titulo.attr("aria-expanded") !== "true");
+  $("#acordeon .titulo").not($titulo)
+    .attr("aria-expanded", "false");
 
-  // Close other accordion items and hide them
-  $("#acordeon .cuerpo").not($cuerpo).stop(true, true).slideUp(200, function () {
-    $(this).attr("hidden", true);
-  });
-  $("#acordeon .titulo").not($titulo).attr("aria-expanded", "false");
+  // Si estaba abierta, cerrarla
+  if (estabaAbierto) {
+    $respuesta.stop(true, true).hide().attr("hidden", true);
+    $titulo.attr("aria-expanded", "false");
+    return;
+  }
+
+  // IMPORTANTE: quitar hidden antes de mostrar la respuesta
+  $respuesta
+    .stop(true, true)
+    .removeAttr("hidden")
+    .hide()
+    .slideDown(200);
+
+  $titulo.attr("aria-expanded", "true");
 });
 
-// ── 3. LOS EFECTOS ──────────────────────────────────────────────────────
+// ── 2. LOS EFECTOS ──────────────────────────────────────────────────────
 
-// ── 4. .each() Y EL ESCALONADO ──────────────────────────────────────────
-$("#mostrar-avisos").on("click", function () {
-  $("#avisos li").each(function (indice) {
+// ── 3. .each() Y EL ESCALONADO ──────────────────────────────────────────
 
-    $(this).stop(true, true).delay(indice * 120).fadeIn(250);
-  });
 
-  $(this).text("Ocultar avisos").off("click").on("click", function () {
-    $("#avisos li").stop(true, true).fadeOut(200);
-    $(this).text("Mostrar avisos");
-  });
-});
 
-// ── 5. .animate(), PARA LO QUE NO CUBRE UN EFECTO ───────────────────────
+// ── 4. .animate(), PARA LO QUE NO CUBRE UN EFECTO ───────────────────────
 
-// ── 6. UNA FUNCIÓN PROPIA QUE DEVUELVE LA SELECCIÓN ─────────────────────
+// ── 5. UNA FUNCIÓN PROPIA QUE DEVUELVE LA SELECCIÓN ─────────────────────
 function resaltar($seleccion, milisegundos = 1200) {
   $seleccion.addClass("resaltado");
   setTimeout(() => $seleccion.removeClass("resaltado"), milisegundos);
   return $seleccion;
 }
 
-resaltar($("#panel h2")).css("letter-spacing", "0.5px");
+resaltar($("#panel-proyecto h2")).css("letter-spacing", "0.5px");
+
+$("#mostrar-avisos").on("click", function () {
+  const $boton = $(this);
+  const $avisos = $("#avisos");
+  const mostrar = $avisos.prop("hidden");
+
+  $avisos.prop("hidden", !mostrar);
+  $boton.attr("aria-expanded", String(mostrar));
+  $boton.text(mostrar ? "Ocultar avisos" : "Mostrar avisos");
+});
+
+
+
+ // ── 6. PANEL DEL PROYECTO: PRODUCTOS, HORARIOS Y CONTACTO ──
+
+
+$(function () {
+  const $boton = $("#btn-menu-proyecto");
+  const $menu = $("#menu-proyecto");
+
+  // Eliminar controladores anteriores de este panel
+  $boton.off("click.panelProyecto");
+  $menu.find("a").off("click.panelProyecto");
+
+  $boton.on("click.panelProyecto", function () {
+    const abrir = $menu.prop("hidden");
+
+    $menu.prop("hidden", !abrir);
+    $boton.attr("aria-expanded", String(abrir));
+  });
+
+  $menu.find("a").on("click.panelProyecto", function () {
+    $menu.prop("hidden", true);
+    $boton.attr("aria-expanded", "false");
+  });
+});

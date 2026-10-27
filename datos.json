@@ -1,0 +1,63 @@
+{
+  "negocio": {
+    "nombre": "Caffe_yum"
+  },
+  "productos": [
+    {
+      "nombre": "Café Espresso",
+      "precio": 10,
+      "unidad": "taza",
+      "stock": 40,
+      "disponible": true
+    },
+    {
+      "nombre": "Caffe_yum Especial",
+      "precio": 18,
+      "unidad": "taza",
+      "stock": 25,
+      "disponible": true
+    },
+    {
+      "nombre": "Café Frío / Cold Brew",
+      "precio": 15,
+      "unidad": "taza",
+      "stock": 8,
+      "disponible": true
+    },
+    {
+      "nombre": "Café Americano",
+      "precio": 15,
+      "unidad": "taza",
+      "stock": 30,
+      "disponible": true
+    },
+    {
+      "nombre": "Café Capuchino",
+      "precio": 14,
+      "unidad": "taza",
+      "stock": 20,
+      "disponible": true
+    },
+    {
+      "nombre": "Frappé de la Casa",
+      "precio": 15,
+      "unidad": "taza",
+      "stock": 15,
+      "disponible": true
+    },
+    {
+      "nombre": "Café Mocaccino",
+      "precio": 17,
+      "unidad": "taza",
+      "stock": 12,
+      "disponible": true
+    },
+    {
+      "nombre": "Café Latte",
+      "precio": 16,
+      "unidad": "taza",
+      "stock": 18,
+      "disponible": true
+    }
+  ]
+}
